@@ -32,14 +32,35 @@ let mostRented = books.reduce((max, book) => max.rented > book.rented ? max : bo
 console.log(`Le livre le plus emprunté est: ${mostRented.title}`);
 
 // Trouve le livre avec l'ID: 873495
+console.log("Trouve le livre avec l'ID: 873495");
 
 function idCheck(book) {
   return book.id == 873495;
 }
 var result2 = books.filter(idCheck);
 
-console.log(`Le livre correspond à l'id 873495 est:`);
+console.log(`Le livre correspondant à l'id 873495 est:`);
 console.table(result2);
 
 // Supprime le livre avec l'ID: 133712 ;
+console.log(`Supprime le livre avec l'ID: 133712`);
+newArray = books.filter(function(book) {
+    return book.id !== 133712;
+  });
+console.table(newArray);
+
 // Trie les livres par ordre alphabétique (sans celui avec l'ID 133712 car il est supprimé).
+console.log(`Trie les livres par ordre alphabétique`);
+
+newArray.sort(function(a, b){
+
+  var nameA = a.title, nameB = b.title
+  if (nameA < nameB)
+   return -1
+  if (nameA > nameB)
+   return 1
+   return 0 
+ });
+
+console.table(newArray);
+
